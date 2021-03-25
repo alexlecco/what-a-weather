@@ -1,0 +1,22 @@
+.mainWeatherCard {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  &__left {
+    font-size: 50px;
+    padding: 10px;
+    margin-right: 20px;
+  }
+
+  &__right {
+    &-max {
+      color: "#e79f50";
+    }
+
+    &-min {
+      color: "#50a8e7";
+    }
+  }
+}
