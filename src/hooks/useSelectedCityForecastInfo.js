@@ -1,14 +1,21 @@
 import { useState, useEffect } from "react";
 import { instanceOpenWeatherMap } from "../axios";
 
-const useForecastInfo = (lat, lon) => {
+const useSelectedCityForecastInfo = (selectedCityName) => {
   const [loading, setLoading] = useState(true);
-  const [forecastInfo, setForecastInfo] = useState([]);
-  const [todayInfo, setTodayInfo] = useState({});
+  const [selectedCityForecastInfo, setSelectedCityForecastInfo] = useState([]);
+  const [selectedTodayForecastInfo, setSelectedTodayForecastInfo] = useState(
+    null
+  );
 
   const { REACT_APP_OPENWEATHERMAP_APIKEY } = process.env;
 
-  const fetchForecastInfo = async () => {
+  const fetchSelectedCityForecastInfo = async () => {
+    const cities = require("cities.json");
+    const city = cities.filter((city) => city.name === selectedCityName.name);
+    const lat = city[0].lat;
+    const lon = city[0].lng;
+
     await instanceOpenWeatherMap
       .get(
         `/onecall?lat=${lat}&lon=${lon}&units=metric&lang=es&exclude=minutely,hourly,alerts&appid=${REACT_APP_OPENWEATHERMAP_APIKEY}`
@@ -28,15 +35,14 @@ const useForecastInfo = (lat, lon) => {
             });
           }
         });
-        setTodayInfo({
+        setSelectedTodayForecastInfo({
           temp: current.temp,
           minTemp: daysInfo[0].minTemp,
           maxTemp: daysInfo[0].maxTemp,
           icon: daysInfo[0].icon,
         });
-
         daysInfo.shift();
-        setForecastInfo(daysInfo);
+        setSelectedCityForecastInfo(daysInfo);
         setLoading(false);
       })
       .catch((error) => {
@@ -45,10 +51,10 @@ const useForecastInfo = (lat, lon) => {
   };
 
   useEffect(() => {
-    if (lat && lon) fetchForecastInfo();
-  }, [lat, lon]);
+    fetchSelectedCityForecastInfo();
+  }, [selectedCityName]);
 
-  return { forecastInfo, todayInfo, loading };
+  return { selectedCityForecastInfo, selectedTodayForecastInfo, loading };
 };
 
-export default useForecastInfo;
+export default useSelectedCityForecastInfo;

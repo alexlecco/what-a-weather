@@ -1248,11 +1248,6 @@
   dependencies:
     "@hapi/hoek" "^8.3.0"
 
-"@intern0t/react-weather-icons@^1.0.3":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@intern0t/react-weather-icons/-/react-weather-icons-1.0.3.tgz#428b5617a90eb9605c8c41096a449d944bd8a6aa"
-  integrity sha512-rUyUdjacbPJvg6aEOaUqkjKjkOZz6ct7NFGshJeP1ghsLHOev68scnGBkv3WpgaJostM1DDeDiyeXqUzvkunEg==
-
 "@istanbuljs/load-nyc-config@^1.0.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@istanbuljs/load-nyc-config/-/load-nyc-config-1.1.0.tgz#fd3db1d59ecf7cf121e80650bb86712f9b55eced"
@@ -3386,6 +3381,11 @@ cipher-base@^1.0.0, cipher-base@^1.0.1, cipher-base@^1.0.3:
   dependencies:
     inherits "^2.0.1"
     safe-buffer "^5.0.1"
+
+cities.json@^1.1.5:
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/cities.json/-/cities.json-1.1.5.tgz#bd82fd19f67e8f7a9735b0e9c1c45d050c2bfe73"
+  integrity sha512-BKge3FmYfYOtN3tBaLfN9QvB7M5dDyjen3aFOn6XwgNASvLDhWTJazAtCvbpDWlpM6YWZXh4TUTsgxOn/n6MbA==
 
 cjs-module-lexer@^0.6.0:
   version "0.6.0"

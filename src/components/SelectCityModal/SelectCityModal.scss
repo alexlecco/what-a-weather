@@ -1,0 +1,14 @@
+.selectCityModal {
+  padding-bottom: 50px;
+}
+
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__option {
+    margin: 20px 0 0;
+    width: 100%;
+  }
+}

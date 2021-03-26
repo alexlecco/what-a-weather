@@ -3,7 +3,8 @@
 Este proyecto fué construido con [Create React App](https://github.com/facebook/create-react-app).
 
 se usaron las siguientes librerias:
-[Public IP](https://www.npmjs.com/package/public-ip)
+[Public IP lib](https://www.npmjs.com/package/public-ip)
+[All the Cities lib](https://www.npmjs.com/package/all-the-cities)
 [Ant Design UI](https://ant.design/)
 [Node Sass](https://www.npmjs.com/package/node-sass)
 [Axios](https://github.com/axios/axios)
