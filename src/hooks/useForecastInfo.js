@@ -6,10 +6,12 @@ const useForecastInfo = (lat, lon) => {
   const [forecastInfo, setForecastInfo] = useState([]);
   const [todayInfo, setTodayInfo] = useState({});
 
+  const { REACT_APP_OPENWEATHERMAP_APIKEY } = process.env;
+
   const fetchForecastInfo = async () => {
     await instanceOpenWeatherMap
       .get(
-        `/onecall?lat=${lat}&lon=${lon}&units=metric&lang=es&exclude=minutely,hourly,alerts&appid=802b50500b2e8e9b6499ebd055e046c1`
+        `/onecall?lat=${lat}&lon=${lon}&units=metric&lang=es&exclude=minutely,hourly,alerts&appid=${REACT_APP_OPENWEATHERMAP_APIKEY}`
       )
       .then((response) => {
         const days = response.data.daily;
