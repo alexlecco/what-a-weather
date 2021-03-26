@@ -18,8 +18,8 @@ const MainWeatherCard = ({
           {temperature}º C
         </Col>
         <Col span={12}>
-          <p className="mainWeatherCard__right-min">{minTemp}º C</p>
           <p className="mainWeatherCard__right-max">{maxTemp}º C</p>
+          <p className="mainWeatherCard__right-min">{minTemp}º C</p>
         </Col>
       </Row>
       <Row>

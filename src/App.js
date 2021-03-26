@@ -7,12 +7,13 @@ import MainWeatherCard from "./components/MainWeatherCard/MainWeatherCard";
 import ForecastContainer from "./components/ForecastContainer/ForecastContainer";
 import usePublicIp from "./hooks/usePublicIp";
 import useLocationInfo from "./hooks/useLocationInfo";
-import useTemperatureInfo from "./hooks/useTemperatureInfo";
+import useForecastInfo from "./hooks/useForecastInfo";
 
 const App = () => {
   const { publicIpV4 } = usePublicIp();
   const { locationData } = useLocationInfo(publicIpV4);
-  const { temperatureInfo, loading } = useTemperatureInfo(
+
+  const { forecastInfo, todayInfo, loading } = useForecastInfo(
     locationData.lat,
     locationData.lon
   );
@@ -27,16 +28,12 @@ const App = () => {
             <MainWeatherCard
               city={locationData.city}
               countryCode={locationData.country}
-              temperature={temperatureInfo.temperature}
-              minTemp={temperatureInfo.minTemp}
-              maxTemp={temperatureInfo.maxTemp}
-              icon={temperatureInfo.icon}
+              temperature={todayInfo.currTemp}
+              minTemp={todayInfo.minTemp}
+              maxTemp={todayInfo.maxTemp}
+              icon={todayInfo.icon}
             />
-            <ForecastContainer
-              minTemp={temperatureInfo.minTemp}
-              maxTemp={temperatureInfo.maxTemp}
-              icon={temperatureInfo.icon}
-            />
+            <ForecastContainer forecastInfo={forecastInfo} />
           </>
         )}
       </header>

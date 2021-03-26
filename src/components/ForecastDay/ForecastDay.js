@@ -13,8 +13,8 @@ const ForecastDay = ({ day, minTemp, maxTemp, icon }) => {
           className="forecastDay__img-src"
         />
       </div>
-      <div className="forecastDay__min">{minTemp}ºC</div>
       <div className="forecastDay__max">{maxTemp}ºC</div>
+      <div className="forecastDay__min">{minTemp}ºC</div>
     </div>
   );
 };

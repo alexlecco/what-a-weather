@@ -7,7 +7,7 @@ const useTemperatureInfo = (lat, lon) => {
 
   const kelvinToCelcius = (temp) => temp - 273.15;
 
-  const fetchIpInfo = async () => {
+  const fetchWeatherInfo = async () => {
     await instanceOpenWeatherMap
       .get(
         `/weather?lat=${lat}&lon=${lon}&appid=802b50500b2e8e9b6499ebd055e046c1`
@@ -27,13 +27,10 @@ const useTemperatureInfo = (lat, lon) => {
       .catch((error) => {
         console.log("ERROR: ", error);
       });
-
-    console.log("lat: ", lat);
-    console.log("lon: ", lon);
   };
 
   useEffect(() => {
-    if (lat && lon) fetchIpInfo();
+    if (lat && lon) fetchWeatherInfo();
   }, [lat, lon]);
 
   return { temperatureInfo, loading };
