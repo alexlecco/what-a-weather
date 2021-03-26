@@ -29,7 +29,7 @@ const useForecastInfo = (lat, lon) => {
           }
         });
         setTodayInfo({
-          currTemp: current.temp,
+          temp: current.temp,
           minTemp: daysInfo[0].minTemp,
           maxTemp: daysInfo[0].maxTemp,
           icon: daysInfo[0].icon,

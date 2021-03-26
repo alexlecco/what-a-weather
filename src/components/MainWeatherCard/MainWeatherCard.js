@@ -3,19 +3,13 @@ import { Row, Col } from "antd";
 
 import "./MainWeatherCard.scss";
 
-const MainWeatherCard = ({
-  city,
-  countryCode,
-  temperature,
-  minTemp,
-  maxTemp,
-  icon,
-}) => {
+const MainWeatherCard = ({ cityInfo }) => {
+  const { city, country, temp, minTemp, maxTemp, icon } = cityInfo;
   return (
     <>
       <Row className="mainWeatherCard">
         <Col className="mainWeatherCard__left" span={24}>
-          {temperature}º C
+          {temp}º C
         </Col>
         <Col span={12}>
           <p className="mainWeatherCard__right-max">{maxTemp}º C</p>
@@ -26,7 +20,7 @@ const MainWeatherCard = ({
         <strong>ubicación actual:</strong>
       </Row>
       <Row>{city}</Row>
-      <Row>{countryCode}</Row>
+      <Row>{country}</Row>
       <img
         src={`http://openweathermap.org/img/wn/${icon}@2x.png`}
         alt="weather-icon"

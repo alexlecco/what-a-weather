@@ -12,11 +12,20 @@ import useForecastInfo from "./hooks/useForecastInfo";
 const App = () => {
   const { publicIpV4 } = usePublicIp();
   const { locationData } = useLocationInfo(publicIpV4);
-
   const { forecastInfo, todayInfo, loading } = useForecastInfo(
     locationData.lat,
     locationData.lon
   );
+
+  const cityInfo = {
+    city: locationData.city,
+    country: locationData.country,
+    temp: todayInfo.temp,
+    minTemp: todayInfo.minTemp,
+    maxTemp: todayInfo.maxTemp,
+    icon: todayInfo.icon,
+    forecastInfo: [...forecastInfo],
+  };
 
   return (
     <div className="App">
@@ -25,15 +34,8 @@ const App = () => {
           <Spin size="large" />
         ) : (
           <>
-            <MainWeatherCard
-              city={locationData.city}
-              countryCode={locationData.country}
-              temperature={todayInfo.currTemp}
-              minTemp={todayInfo.minTemp}
-              maxTemp={todayInfo.maxTemp}
-              icon={todayInfo.icon}
-            />
-            <ForecastContainer forecastInfo={forecastInfo} />
+            <MainWeatherCard cityInfo={cityInfo} />
+            <ForecastContainer cityInfo={cityInfo} />
           </>
         )}
       </header>

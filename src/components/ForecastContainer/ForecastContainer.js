@@ -3,10 +3,11 @@ import { Row, Col } from "antd";
 import "antd/dist/antd.css";
 
 import "./ForecastContainer.scss";
+import { dayNames } from "../../constants";
 import ForecastDay from "../ForecastDay/ForecastDay";
 
-const ForecastContainer = ({ forecastInfo }) => {
-  const dayNames = ["dom", "lun", "mar", "mie", "jue", "vie", "sab"];
+const ForecastContainer = ({ cityInfo }) => {
+  const { forecastInfo } = cityInfo;
 
   return (
     <div className="forecastContainer">
