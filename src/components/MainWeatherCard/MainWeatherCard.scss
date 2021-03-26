@@ -1,3 +1,5 @@
+@import "../../constants/dimensions.scss";
+
 .mainWeatherCard {
   display: flex;
   flex-direction: row;
@@ -5,10 +7,15 @@
   justify-content: center;
   flex-flow: initial;
   margin-top: 5%;
+  width: 50%;
 
   &__left {
     font-size: 50px;
     padding: 10px;
+
+    @media (max-width: $md) {
+      font-size: 20px;
+    }
   }
 
   &__right {

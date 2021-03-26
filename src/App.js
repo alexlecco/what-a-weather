@@ -37,18 +37,6 @@ const App = () => {
 
   useEffect(() => {
     setSelectedCity({
-      city: locationData.city,
-      country: locationData.country,
-      temp: todayInfo.temp,
-      minTemp: todayInfo.minTemp,
-      maxTemp: todayInfo.maxTemp,
-      icon: todayInfo.icon,
-      forecastInfo: [...forecastInfo],
-    });
-  }, [locationData, forecastInfo]);
-
-  useEffect(() => {
-    setSelectedCity({
       city: selectedCityName.name,
       country: selectedCityName.country,
       temp: selectedTodayForecastInfo && selectedTodayForecastInfo.temp,
@@ -58,6 +46,18 @@ const App = () => {
       forecastInfo: [...selectedCityForecastInfo],
     });
   }, [selectedCityForecastInfo, selectedTodayForecastInfo]);
+
+  useEffect(() => {
+    setSelectedCity({
+      city: locationData.city,
+      country: locationData.country,
+      temp: todayInfo.temp,
+      minTemp: todayInfo.minTemp,
+      maxTemp: todayInfo.maxTemp,
+      icon: todayInfo.icon,
+      forecastInfo: [...forecastInfo],
+    });
+  }, [locationData, forecastInfo]);
 
   return (
     <div className="App">

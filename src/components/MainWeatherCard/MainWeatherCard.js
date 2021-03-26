@@ -8,7 +8,7 @@ const MainWeatherCard = ({ cityInfo }) => {
   return (
     <>
       <Row className="mainWeatherCard">
-        <Col className="mainWeatherCard__left" span={24}>
+        <Col className="mainWeatherCard__left" span={12}>
           {temp}º C
         </Col>
         <Col span={12}>

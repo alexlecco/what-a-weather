@@ -22,16 +22,16 @@ const useForecastInfo = (lat, lon) => {
           if (daysInfo.length < 6) {
             daysInfo.push({
               dayNum: new Date(day.dt * 1000).getDay(),
-              minTemp: day.temp.min,
-              maxTemp: day.temp.max,
+              minTemp: Math.round(day.temp.min),
+              maxTemp: Math.round(day.temp.max),
               icon: day.weather[0].icon,
             });
           }
         });
         setTodayInfo({
-          temp: current.temp,
-          minTemp: daysInfo[0].minTemp,
-          maxTemp: daysInfo[0].maxTemp,
+          temp: Math.round(current.temp),
+          minTemp: Math.round(daysInfo[0].minTemp),
+          maxTemp: Math.round(daysInfo[0].maxTemp),
           icon: daysInfo[0].icon,
         });
 

@@ -3,13 +3,15 @@
 }
 
 .modal {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  &__body {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 
-  &__option {
-    margin: 20px 0 0;
-    width: 100%;
+    &-option {
+      margin: 20px 0 0;
+      width: 100%;
+    }
   }
 }

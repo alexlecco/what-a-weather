@@ -30,11 +30,18 @@ const SelectCityModal = ({ selectCity }) => {
       >
         {listOfCities.map((city) => (
           <Row span={24} className="modal__body">
-            <Button key={city.name} onClick={() => selectCity(city)}>
+            <Button
+              className="modal__body-option"
+              key={city.name}
+              onClick={() => selectCity(city)}
+            >
               {city.name}
             </Button>
           </Row>
         ))}
+        <Button className="modal__body-option" onClick={() => {}}>
+          Seleccionar la ubicación actual
+        </Button>
       </Modal>
     </div>
   );
