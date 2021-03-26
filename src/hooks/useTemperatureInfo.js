@@ -33,7 +33,7 @@ const useTemperatureInfo = (lat, lon) => {
     if (lat && lon) fetchIpInfo();
   }, [lat, lon]);
 
-  return { loading, temperatureInfo };
+  return { temperatureInfo, loading };
 };
 
 export default useTemperatureInfo;
