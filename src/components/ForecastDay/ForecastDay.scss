@@ -1,0 +1,31 @@
+@import "../../constants/dimensions.scss";
+
+.forecastDay {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 30px;
+
+  &__day,
+  &__img,
+  &__min,
+  &__max {
+    margin: 0 10px;
+  }
+
+  &__day {
+    width: 50px;
+  }
+
+  &__img {
+    &-src {
+      width: 50px;
+    }
+  }
+
+  @media (max-width: $md) {
+    flex-direction: row;
+    padding-bottom: 10px;
+  }
+}

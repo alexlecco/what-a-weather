@@ -27,6 +27,9 @@ const useTemperatureInfo = (lat, lon) => {
       .catch((error) => {
         console.log("ERROR: ", error);
       });
+
+    console.log("lat: ", lat);
+    console.log("lon: ", lon);
   };
 
   useEffect(() => {

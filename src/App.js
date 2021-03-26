@@ -4,6 +4,7 @@ import "antd/dist/antd.css";
 
 import "./App.scss";
 import MainWeatherCard from "./components/MainWeatherCard/MainWeatherCard";
+import ForecastContainer from "./components/ForecastContainer/ForecastContainer";
 import usePublicIp from "./hooks/usePublicIp";
 import useLocationInfo from "./hooks/useLocationInfo";
 import useTemperatureInfo from "./hooks/useTemperatureInfo";
@@ -22,14 +23,21 @@ const App = () => {
         {loading ? (
           <Spin size="large" />
         ) : (
-          <MainWeatherCard
-            city={locationData.city}
-            countryCode={locationData.country}
-            temperature={temperatureInfo.temperature}
-            minTemp={temperatureInfo.minTemp}
-            maxTemp={temperatureInfo.maxTemp}
-            icon={temperatureInfo.icon}
-          />
+          <>
+            <MainWeatherCard
+              city={locationData.city}
+              countryCode={locationData.country}
+              temperature={temperatureInfo.temperature}
+              minTemp={temperatureInfo.minTemp}
+              maxTemp={temperatureInfo.maxTemp}
+              icon={temperatureInfo.icon}
+            />
+            <ForecastContainer
+              minTemp={temperatureInfo.minTemp}
+              maxTemp={temperatureInfo.maxTemp}
+              icon={temperatureInfo.icon}
+            />
+          </>
         )}
       </header>
     </div>
