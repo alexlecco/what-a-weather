@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Spin } from "antd";
 import "antd/dist/antd.css";
 
@@ -10,6 +10,7 @@ import useLocationInfo from "./hooks/useLocationInfo";
 import useForecastInfo from "./hooks/useForecastInfo";
 
 const App = () => {
+  const [selectedCity, setSelectedCity] = useState(undefined);
   const { publicIpV4 } = usePublicIp();
   const { locationData } = useLocationInfo(publicIpV4);
   const { forecastInfo, todayInfo, loading } = useForecastInfo(
@@ -17,15 +18,19 @@ const App = () => {
     locationData.lon
   );
 
-  const cityInfo = {
-    city: locationData.city,
-    country: locationData.country,
-    temp: todayInfo.temp,
-    minTemp: todayInfo.minTemp,
-    maxTemp: todayInfo.maxTemp,
-    icon: todayInfo.icon,
-    forecastInfo: [...forecastInfo],
-  };
+  useEffect(() => {
+    setSelectedCity({
+      city: locationData.city,
+      country: locationData.country,
+      temp: todayInfo.temp,
+      minTemp: todayInfo.minTemp,
+      maxTemp: todayInfo.maxTemp,
+      icon: todayInfo.icon,
+      forecastInfo: [...forecastInfo],
+    });
+  }, [locationData, forecastInfo]);
+
+  console.log("selectedCity::::", selectedCity);
 
   return (
     <div className="App">
@@ -34,8 +39,8 @@ const App = () => {
           <Spin size="large" />
         ) : (
           <>
-            <MainWeatherCard cityInfo={cityInfo} />
-            <ForecastContainer cityInfo={cityInfo} />
+            <MainWeatherCard cityInfo={selectedCity} />
+            <ForecastContainer cityInfo={selectedCity} />
           </>
         )}
       </header>
