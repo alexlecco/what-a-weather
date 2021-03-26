@@ -2,28 +2,7 @@ import React, { useState } from "react";
 import { Modal, Button, Row } from "antd";
 import "./SelectCityModal.scss";
 
-const listOfCities = [
-  {
-    name: "Nairobi",
-    country: "KE",
-  },
-  {
-    name: "Helsinki",
-    country: "FI",
-  },
-  {
-    name: "Tokyo",
-    country: "JP",
-  },
-  {
-    name: "Denver",
-    country: "US",
-  },
-  {
-    name: "Berlín",
-    country: "DE",
-  },
-];
+import { listOfCities } from "../../constants";
 
 const SelectCityModal = ({ selectCity }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -50,7 +29,7 @@ const SelectCityModal = ({ selectCity }) => {
         onCancel={handleCancel}
       >
         {listOfCities.map((city) => (
-          <Row span={24}>
+          <Row span={24} className="modal__body">
             <Button key={city.name} onClick={() => selectCity(city)}>
               {city.name}
             </Button>
