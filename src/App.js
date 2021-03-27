@@ -3,7 +3,6 @@ import { Spin } from "antd";
 import MainWeatherCard from "./components/MainWeatherCard/MainWeatherCard";
 import ForecastContainer from "./components/ForecastContainer/ForecastContainer";
 import SelectCityModal from "./components/SelectCityModal/SelectCityModal";
-import usePublicIp from "./hooks/usePublicIp";
 import useLocationInfo from "./hooks/useLocationInfo";
 import useForecastInfo from "./hooks/useForecastInfo";
 import { listOfCities } from "./constants";
@@ -13,8 +12,7 @@ import "./App.scss";
 const App = () => {
   const [citiesList, setCitiesList] = useState(listOfCities);
   const [selectedCity, setSelectedCity] = useState({});
-  const { publicIpV4 } = usePublicIp();
-  const { locationData } = useLocationInfo(publicIpV4);
+  const { locationData } = useLocationInfo();
   const { forecastInfo, todayInfo, loading } = useForecastInfo(
     selectedCity.lat,
     selectedCity.lon

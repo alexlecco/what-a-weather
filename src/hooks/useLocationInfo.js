@@ -1,32 +1,38 @@
 import { useState, useEffect } from "react";
-import { instanceIpAPI } from "../axios";
+import { instanceArcgis } from "../axios";
 
-const useLocationInfo = (publicIp) => {
+const useLocationInfo = () => {
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [locationData, setLocationData] = useState(null);
 
   useEffect(() => {
-    const fetchIpInfo = async () => {
-      await instanceIpAPI
-        .get(`/${publicIp}`)
-        .then((response) => {
-          const { data } = response;
+    const fetchLocationInfo = async () => {
+      setLoading(true);
+      if (!navigator.geolocation) {
+        setLoading(false);
+        setError("Navegador no soportado");
+      } else {
+        navigator.geolocation.getCurrentPosition(async (location) => {
+          const { longitude, latitude } = location.coords;
+
+          const reverseGeocode = await instanceArcgis.get(
+            `/reverseGeocode?f=pjson&location=${longitude},${latitude}`
+          );
 
           setLocationData({
-            city: data.city,
-            country: data.country,
-            lat: data.lat,
-            lon: data.lon,
+            city: reverseGeocode.data.address.City,
+            country: reverseGeocode.data.address.CountryCode,
+            lat: latitude,
+            lon: longitude,
           });
           setLoading(false);
-        })
-        .catch((error) => {
-          console.log("ERROR: ", error);
-        });
+        }, error);
+      }
     };
 
-    fetchIpInfo();
-  }, [publicIp]);
+    fetchLocationInfo();
+  }, [error]);
 
   return { loading, locationData };
 };

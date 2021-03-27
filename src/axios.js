@@ -1,14 +1,12 @@
 import axios from "axios";
 
-const instanceIpAPI = axios.create({
-  baseURL: "http://ip-api.com/json",
-  headers: {
-    "Access-Control-Allow-Origin": "*",
-  },
+const instanceArcgis = axios.create({
+  baseURL:
+    "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer",
 });
 
 const instanceOpenWeatherMap = axios.create({
   baseURL: "https://api.openweathermap.org/data/2.5",
 });
 
-export { instanceIpAPI, instanceOpenWeatherMap };
+export { instanceArcgis, instanceOpenWeatherMap };
