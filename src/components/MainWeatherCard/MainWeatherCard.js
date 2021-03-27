@@ -8,11 +8,13 @@ const MainWeatherCard = ({ cityInfo, isCurrentLocation }) => {
   return (
     <>
       <Row className="mainWeatherCard">
-        <Col className="mainWeatherCard__left" flex={1}>
+        <Col className="mainWeatherCard__left" span={24}>
           {temp}º C
         </Col>
-        <Col className="mainWeatherCard__right" flex={0.5}>
+        <Col className="mainWeatherCard__right" span={24}>
           <p className="mainWeatherCard__right-max">{maxTemp}º C</p>
+        </Col>
+        <Col className="mainWeatherCard__right" span={24}>
           <p className="mainWeatherCard__right-min">{minTemp}º C</p>
         </Col>
       </Row>
