@@ -9,7 +9,7 @@ const usePublicIp = () => {
       const result = await publicIp.v4();
       setPublicIpV4(result);
     })();
-  }, [publicIpV4]);
+  }, [publicIp]);
 
   return { publicIpV4 };
 };
