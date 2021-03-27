@@ -15,8 +15,12 @@ const SelectCityModal = ({ onSelectCity, citiesList }) => {
       <Modal
         title="Ciudades disponibles"
         visible={isModalVisible}
-        // onOk={toggleModal}
         onCancel={toggleModal}
+        footer={[
+          <Button type="primary" key="back" onClick={toggleModal}>
+            Cancelar
+          </Button>,
+        ]}
       >
         <Row span={24} className="modal__body">
           {citiesList.map((city) => (
