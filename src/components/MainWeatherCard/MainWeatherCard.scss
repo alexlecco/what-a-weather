@@ -2,26 +2,18 @@
 
 .mainWeatherCard {
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  flex-flow: initial;
-  margin-top: 5%;
-  width: 30%;
+  align-items: center;
+  margin-top: 50px;
+  padding: 10px;
 
-  &__left {
-    font-size: 50px;
-    padding: 10px;
+  &__element {
+    margin-bottom: 0;
 
-    @media (max-width: $md) {
-      font-size: 30px;
-      width: 100%;
-    }
-  }
-
-  &__right {
-    @media (max-width: $md) {
-      width: 100%;
+    &-main {
+      font-size: 40px;
+      margin-bottom: 10px;
     }
 
     &-max {

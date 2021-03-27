@@ -7,15 +7,17 @@ const MainWeatherCard = ({ cityInfo, isCurrentLocation }) => {
   const { city, country, temp, minTemp, maxTemp, icon } = cityInfo;
   return (
     <>
-      <Row className="mainWeatherCard">
-        <Col className="mainWeatherCard__left" span={24}>
-          {temp}º C
-        </Col>
-        <Col className="mainWeatherCard__right" span={24}>
-          <p className="mainWeatherCard__right-max">{maxTemp}º C</p>
-        </Col>
-        <Col className="mainWeatherCard__right" span={24}>
-          <p className="mainWeatherCard__right-min">{minTemp}º C</p>
+      <Row>
+        <Col className="mainWeatherCard">
+          <Row>
+            <p className="mainWeatherCard__element-main">{temp}º C</p>
+          </Row>
+          <Row>
+            <p className="mainWeatherCard__element-max">{maxTemp}º C</p>
+          </Row>
+          <Row>
+            <p className="mainWeatherCard__element-min">{minTemp}º C</p>
+          </Row>
         </Col>
       </Row>
       {isCurrentLocation === true && (
