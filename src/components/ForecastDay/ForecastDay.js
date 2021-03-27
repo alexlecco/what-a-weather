@@ -8,7 +8,7 @@ const ForecastDay = ({ day, minTemp, maxTemp, icon }) => {
       <div className="forecastDay__day">{day}</div>
       <div className="forecastDay__img">
         <img
-          src={`http://openweathermap.org/img/wn/${icon}@2x.png`}
+          src={`https://openweathermap.org/img/wn/${icon}@2x.png`}
           alt="weather-icon"
           className="forecastDay__img-src"
         />
