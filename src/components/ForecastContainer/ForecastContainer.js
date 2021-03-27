@@ -6,9 +6,7 @@ import "./ForecastContainer.scss";
 import { dayNames } from "../../constants";
 import ForecastDay from "../ForecastDay/ForecastDay";
 
-const ForecastContainer = ({ cityInfo }) => {
-  const { forecastInfo } = cityInfo;
-
+const ForecastContainer = ({ forecastInfo }) => {
   return (
     <div className="forecastContainer">
       <Row>

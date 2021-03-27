@@ -2,46 +2,36 @@ import React, { useState } from "react";
 import { Modal, Button, Row } from "antd";
 import "./SelectCityModal.scss";
 
-import { listOfCities } from "../../constants";
-
-const SelectCityModal = ({ selectCity }) => {
+const SelectCityModal = ({ onSelectCity, citiesList }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
-  const showModal = () => {
-    setIsModalVisible(true);
-  };
-
-  const handleOk = () => {
-    setIsModalVisible(false);
-  };
-
-  const handleCancel = () => {
-    setIsModalVisible(false);
+  const toggleModal = () => {
+    setIsModalVisible(!isModalVisible);
   };
 
   return (
     <div className="selectCityModal">
-      <Button onClick={showModal}>Seleccionar otra ciudad</Button>
+      <Button onClick={toggleModal}>Seleccionar otra ciudad</Button>
       <Modal
         title="Ciudades disponibles"
         visible={isModalVisible}
-        onOk={handleOk}
-        onCancel={handleCancel}
+        // onOk={toggleModal}
+        onCancel={toggleModal}
       >
-        {listOfCities.map((city) => (
-          <Row span={24} className="modal__body">
+        <Row span={24} className="modal__body">
+          {citiesList.map((city) => (
             <Button
               className="modal__body-option"
-              key={city.name}
-              onClick={() => selectCity(city)}
+              key={city.city}
+              onClick={() => {
+                onSelectCity(city);
+                toggleModal();
+              }}
             >
-              {city.name}
+              {city.city}
             </Button>
-          </Row>
-        ))}
-        <Button className="modal__body-option" onClick={() => {}}>
-          Seleccionar la ubicación actual
-        </Button>
+          ))}
+        </Row>
       </Modal>
     </div>
   );

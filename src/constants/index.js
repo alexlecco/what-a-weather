@@ -2,24 +2,34 @@ const dayNames = ["dom", "lun", "mar", "mie", "jue", "vie", "sab"];
 
 const listOfCities = [
   {
-    name: "Nairobi",
+    city: "Nairobi",
     country: "Kenia",
+    lat: -1.292066,
+    lon: 36.821945,
   },
   {
-    name: "Helsinki",
+    city: "Helsinki",
     country: "Finlandia",
+    lat: 60.169857,
+    lon: 24.938379,
   },
   {
-    name: "Tokyo",
+    city: "Tokyo",
     country: "Japón",
+    lat: 35.689487,
+    lon: 139.691711,
   },
   {
-    name: "Denver",
+    city: "Denver",
     country: "Estados Unidos",
+    lat: 39.739235,
+    lon: -104.99025,
   },
   {
-    name: "Berlín",
+    city: "Berlín",
     country: "Alemania",
+    lat: 52.520008,
+    lon: 13.404954,
   },
 ];
 

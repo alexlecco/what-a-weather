@@ -3,7 +3,7 @@ import { Row, Col } from "antd";
 
 import "./MainWeatherCard.scss";
 
-const MainWeatherCard = ({ cityInfo }) => {
+const MainWeatherCard = ({ cityInfo, isCurrentLocation }) => {
   const { city, country, temp, minTemp, maxTemp, icon } = cityInfo;
   return (
     <>
@@ -16,9 +16,11 @@ const MainWeatherCard = ({ cityInfo }) => {
           <p className="mainWeatherCard__right-min">{minTemp}º C</p>
         </Col>
       </Row>
-      <Row>
-        <strong>ubicación actual:</strong>
-      </Row>
+      {isCurrentLocation === true && (
+        <Row>
+          <strong>ubicación actual:</strong>
+        </Row>
+      )}
       <Row>{city}</Row>
       <Row>{country}</Row>
       <img

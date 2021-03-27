@@ -3,7 +3,7 @@ import { instanceIpAPI } from "../axios";
 
 const useLocationInfo = (publicIp) => {
   const [loading, setLoading] = useState(true);
-  const [locationData, setLocationData] = useState([]);
+  const [locationData, setLocationData] = useState(null);
 
   const fetchIpInfo = async () => {
     await instanceIpAPI
