@@ -8,8 +8,10 @@ import ForecastContainer from "./components/ForecastContainer/ForecastContainer"
 
 import { mock_cityInfo, mock_forecastInfo } from "./__mockData__";
 
+// configure Enzyme Adapter
 configure({ adapter: new Adapter() });
 
+// add matchMedia feature
 window.matchMedia =
   window.matchMedia ||
   function () {
@@ -20,6 +22,7 @@ window.matchMedia =
     };
   };
 
+// tests
 it("get loading state before fetch data", () => {
   const { getByTestId } = render(<App />);
   expect(getByTestId("loading")).toHaveTextContent("Cargando...");
