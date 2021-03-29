@@ -39,12 +39,15 @@ const App = () => {
     <div className="App">
       <header className="App-header">
         {loading ? (
-          <Spin size="large" />
+          <>
+            <Spin size="large" />
+            <span data-testid="loading">Cargando...</span>
+          </>
         ) : (
           <>
             <MainWeatherCard
-              isCurrentLocation={isCurrentLocation}
               cityInfo={{ ...todayInfo, ...selectedCity }}
+              isCurrentLocation={isCurrentLocation}
             />
             <ForecastContainer forecastInfo={forecastInfo} />
             <SelectCityModal

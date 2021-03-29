@@ -10,7 +10,9 @@ const MainWeatherCard = ({ cityInfo, isCurrentLocation }) => {
       <Row>
         <Col className="mainWeatherCard">
           <Row>
-            <p className="mainWeatherCard__element-main">{temp}º C</p>
+            <p className="mainWeatherCard__element-main">
+              <span data-testid="temp">{temp}</span>º C
+            </p>
           </Row>
           <Row>
             <p className="mainWeatherCard__element-max">{maxTemp}º C</p>
@@ -25,8 +27,12 @@ const MainWeatherCard = ({ cityInfo, isCurrentLocation }) => {
           <strong>ubicación actual:</strong>
         </Row>
       )}
-      <Row>{city}</Row>
-      <Row>{country}</Row>
+      <Row>
+        <span data-testid="city_name">{city}</span>
+      </Row>
+      <Row>
+        <span data-testid="country_name">{country}</span>
+      </Row>
       <img
         src={`https://openweathermap.org/img/wn/${icon}@2x.png`}
         alt="weather-icon"
